@@ -1,0 +1,44 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url("https://cdn.unenvironment.org/worldenvironmentday/public/2024-04/Homepage-banner-1866x570-DREAMSTIME.jpg");
+    height: 90vh;
+}
+
+.social-icons {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.social-icons li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.social-icons a {
+    color: #fff;
+    font-size: 18px;
+}
+
+.social-icons a:hover {
+    color: #ccc;
+}
+
+.dropdown-menu {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 0;
+}
+
+.dropdown-menu a {
+    color: #fff;
+    padding: 10px;
+    display: block;
+}
+
+.dropdown-menu a:hover {
+    background-color: #444;
+    color: #fff;
+}

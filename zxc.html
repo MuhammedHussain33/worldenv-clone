@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Environment Day</title>
+
+   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    
+    <style>
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            scroll-behavior: smooth;
+            background-image: url('https://cdn.unenvironment.org/worldenvironmentday/public/2024-04/Homepage-banner-1866x570-DREAMSTIME.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: #4c4099;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-radius: 5px;
+        }
+
+        .navbar-brand, .nav-link, .navbar-text {
+            color: white !important;
+        }
+
+        .navbar-toggler {
+            border-color: white;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+        }
+
+        .rep {
+            color: #d0d0d0;
+        }
+
+        /* Banner Section */
+        .banner {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .banner h1 {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        .banner .btn {
+            background-color: #ffc107;
+            border: none;
+            padding: 10px 30px;
+            font-size: 1.2rem;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 60px 0;
+        }
+
+        #about {
+            background-color: #f7f7f7;
+            color: black;
+        }
+
+        #events {
+            background-image: url('https://cdn.unenvironment.org/worldenvironmentday/public/2024-06/39008.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        #contact {
+            background-color: #d0d0d0;
+            color: black;
+        }
+
+        section h1 {
+            font-size: 2.5rem;
+            color: #4c4099;
+        }
+
+        /* Highlights Section */
+        .highlight-section {
+            background-color: black;
+            padding: 60px 0;
+        }
+
+        .highlight-section h2 {
+            font-size: 3rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .highlight-box {
+            background-color: #ffc107;
+            padding: 30px;
+            text-align: center;
+            border-radius: 5px;
+            height: 100%;
+        }
+
+        .highlight-box p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .highlight-box .btn {
+            background-color: white;
+            color: black;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 30px;
+        }
+
+        .highlight-box .btn:hover {
+            background-color: #ddd;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .highlight-box {
+                margin-bottom: 20px;
+            }
+        }
+
+        /* Footer Styles */
+        .footer {
+            background-color: #4c4099;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .footer .social-icons a {
+            color: white;
+            font-size: 20px;
+            margin: 0 10px;
+            transition: 0.3s;
+        }
+
+        .footer .social-icons a:hover {
+            color: #ffc107;
+        }
+
+        .social-media-box {
+            position: fixed;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            background-color: #333;
+            padding: 10px;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .social-media-box a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            transition: background-color 0.3s;
+            font-size: 20px;
+        }
+
+        .social-media-box a:hover {
+            background-color: #555;
+        }
+
+        .social-media-box a i {
+            width: 24px;
+            height: 24px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="social-media-box">
+        <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://www.whatsapp.com" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="mailto:someone@example.com"><i class="fas fa-envelope"></i></a>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">World Environment Day</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#events">Events</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+                <div class="navbar-text">
+                    <a href="#" class="text-white me-2"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-white me-2"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Banner Section -->
+    <section id="home" class="banner">
+        <h1 class="rep">Republic of Korea to Host World Environment Day 2025</h1>
+        <p>5 June 2025</p>
+        <a href="#about" class="btn btn-warning">Learn More</a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container text-center">
+            <h1><span style="color: red;">#</span>GenerationRestoration</h1>
+            <p>We cannot turn back time, but we can grow forests, revive water sources, and bring back soils. We are the generation that can make peace with land.</p>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events">
+        <div class="container text-center">
+            <h1>Upcoming Events</h1>
+            <p>Details about the events related to World Environment Day will be added here.</p>
+        </div>
+    </section>
+
+    <!-- Highlights Section -->
+    <section id="contact" class="highlight-section" style="background-color: black;">
+        <div class="container">
+            <h2 style="color: #d0d0d0;">Highlights</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="highlight-box">
+                        <div class="highlight-icon">🌍</div>
+                        <p>World Environment Day 2024 events organized by our partners around the globe</p>
+                        <a href="#" class="btn">ASSOCIATED EVENTS</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="highlight-box">
+                        <div class="highlight-icon">🌱</div>
+                        <p>Learn how everyone can help restore land, prevent desertification & droughts</p>
+                        <a href="#" class="btn">GET SOLUTIONS</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="highlight-box">
+                        <div class="highlight-icon">🌿</div>
+                        <p>Weird and wonderful facts about terrestrial ecosystems</p>
+                        <a href="#" class="btn">DISCOVER</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 <span style="color: red;">H</span> Programme</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <script >
+            window.alert("Hello")
+        </script>
+</body>
+
+</html>
+
+
+
+
+
