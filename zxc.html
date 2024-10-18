@@ -6,7 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>World Environment Day</title>
 
-   
+    <!-- Leaflet CSS and JS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
@@ -193,17 +200,66 @@
             width: 24px;
             height: 24px;
         }
+
+        .custom-btn {
+    background-color: #f0ad4e; 
+    border: none;
+    color: white;
+    font-size: 1 rem; 
+    font-weight: bold;
+    padding: 12px 24px; 
+    padding-left: 20px; 
+    border-radius: 8px; 
+    transition: background-color 0.3s ease;
+  }
+
+  .custom-btn:hover {
+    background-color: #ec971f; 
+    cursor: pointer;  
+  }
+
+      
+#main-map {
+    width: 0%;
+    height: 00px; 
+}
+
+
+#mini-map {
+    width: 200px;
+    height: 150px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    border: 2px solid #333;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff;
+}
+
     </style>
 </head>
 
 <body>
 
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Welcome!</strong> Get ready for World Environment Day 2025, hosted by the Republic of Korea.
+        <button  type="button" class="btn-close bg-warning" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+        <!-- Map Section -->
+        <section id="map-section">
+            <div id="main-map"></div>
+            <div id="mini-map"></div>
+        </section>
+      
     <div class="social-media-box">
         <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
         <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
         <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
         <a href="https://www.whatsapp.com" target="_blank"><i class="fab fa-whatsapp"></i></a>
-        <a href="mailto:someone@example.com"><i class="fas fa-envelope"></i></a>
+        <a href="mammoohusain2017@gmail.com"><i class="fas fa-envelope"></i></a>
     </div>
 
     <!-- Navbar -->
@@ -226,6 +282,7 @@
                     <a href="#" class="text-white me-2"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" class="text-white me-2"><i class="fab fa-twitter"></i></a>
                     <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+                    <button onclick="customAlert()" class="btn btn-warning btn-lg custom-btn">Login</button>
                 </div>
             </div>
         </div>
@@ -287,9 +344,9 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 <span style="color: red;">H</span> Programme</p>
+            <p>&copy; 2024 <span style="color: red;">H</span> Programme.inc</p>
             <div class="social-icons">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#o"><i class="fab fa-facebook-f"></i></a>
                 <a href="#"><i class="fab fa-twitter"></i></a>
                 <a href="#"><i class="fab fa-instagram"></i></a>
                 <a href="#"><i class="fab fa-linkedin-in"></i></a>
@@ -301,9 +358,48 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-        <script >
-            window.alert("Hello")
+        <script>
+            function customAlert() {
+                Swal.fire({
+                    title: 'Alert take a rest',
+                    text: 'We wil fix this bug please try again 24 hrs !',
+                    icon: 'info',
+                    confirmButtonText: 'Okay',
+                    background: '#f0f0f0',
+                    backdrop: `
+                        rgba(0,0,123,0.4)
+                        url("https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3VwZnYxazI1OHlodTE3emppczU3dGJqMW4zeXFnaGY5YTI3Nm11NiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/sGBKoZuQtWQEEgSvJm/giphy.gif")
+                        center left
+                        no-repeat
+                    `
+                });
+            }
+
+            // Initialize the main map
+    const mainMap = L.map('main-map').setView([12.9716, 77.5946], 13); // Coordinates for Bangalore
+    
+    // Add tile layer to the main map (OpenStreetMap)
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(mainMap);
+    
+    // Initialize the mini-map with similar settings, but zoomed out
+    const miniMap = L.map('mini-map', {
+        zoomControl: false, // Disable zoom controls on the mini-map
+        attributionControl: false,
+        dragging: false,
+        scrollWheelZoom: false // Disable scrolling on the mini-map
+    }).setView([12.9716, 77.5946], 6); // Same location, but more zoomed out
+    
+    // Add tile layer to the mini-map
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(miniMap);
+    
+    // Optional: Add a marker for the main location on both maps
+    L.marker([12.9716, 77.5946]).addTo(mainMap).bindPopup('Main Location');
+    L.marker([12.9716, 77.5946]).addTo(miniMap);
         </script>
+
+    
 </body>
 
 </html>
